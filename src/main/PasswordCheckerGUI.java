@@ -1,10 +1,11 @@
-package gui;
-
-import code.PasswordChecker;
+package main;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
+
+import app.PasswordChecker;
+
 import javax.swing.JButton;
 
 import javax.swing.GroupLayout;

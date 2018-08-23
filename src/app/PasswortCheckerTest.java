@@ -1,4 +1,4 @@
-package code;
+package app;
 import junit.framework.TestCase;
 
 public class PasswortCheckerTest extends TestCase {
