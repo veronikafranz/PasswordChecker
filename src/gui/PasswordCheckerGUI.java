@@ -9,8 +9,6 @@ import javax.swing.JButton;
 
 import javax.swing.GroupLayout;
 
-import java.util.Scanner;
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -47,8 +45,6 @@ public class PasswordCheckerGUI extends JFrame {
 		
 		 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 	     setTitle("PasswordChecker");
-//TODO
-	     //this.setIconImage(getIconImage());
      
 		//create fields for data entry
 		tempPasswordField = new JPasswordField(15);
