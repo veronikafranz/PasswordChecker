@@ -34,7 +34,7 @@ public class PasswortCheckerTest extends TestCase {
 	}
 	
 	public void testLength() {
-		assertEquals("Testing lenght = 0 failed.", false, pwc.checkPassword(null));
+		assertEquals("Testing lenght = 0 failed.", false, pwc.checkPassword(new char[] {}));
 		assertEquals("Testing lenght = 2 failed.", false, pwc.checkPassword(new char[] {'H','h'}));
 		assertEquals("Testing lenght = 7 failed.", false, pwc.checkPassword(new char[] {'H','h','9','Z','U','u','p'}));
 		assertEquals("Testing lenght = 8 failed.", true, pwc.checkPassword(new char[] {'H','o','h','9','Z','U','u','p'}));

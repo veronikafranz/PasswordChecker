@@ -1,5 +1,4 @@
 package app;
-import java.util.Scanner;
 
 /**
  * A class that checks password for characteristics
@@ -29,11 +28,34 @@ public class PasswordChecker {
 				&& checkLength(password);
 	}
 	
+	public boolean checkPassword(String password) {
+		if(password == null) {
+			return false;
+		}
+		
+		return checkDigits(password)
+				&& checkUpperCase(password)
+				&& checkLowerCase(password)
+				&& !containsSpace(password)
+				&& checkLength(password);
+	}
+	
 	private boolean checkDigits(char[] password) {
 		//Zifferprüfung
 		for(int i = 0; i < password.length; i++) {
 			//wenn enthalten
 			if(Character.isDigit(password[i])) {
+				return true;				
+			}
+		}
+		return false;
+	}
+	
+	private boolean checkDigits(String password) {
+		//Zifferprüfung
+		for(int i = 0; i < password.length(); i++) {
+			//wenn enthalten
+			if(Character.isDigit(password.charAt(i))) {
 				return true;				
 			}
 		}
@@ -51,6 +73,17 @@ public class PasswordChecker {
 		return false;
 	}
 	
+	private boolean checkUpperCase(String password) {
+		//upperCase-Prüfung
+		for(int i = 0; i < password.length(); i++) {
+			//wenn upperCase enthalten
+			if(Character.isUpperCase(password.charAt(i))) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	private boolean checkLowerCase(char[] password) {
 		//lowerCase-Prüfung
 		for(int i = 0; i < password.length; i++) {
@@ -62,6 +95,17 @@ public class PasswordChecker {
 		return false;
 	}
 
+	private boolean checkLowerCase(String password) {
+		//lowerCase-Prüfung
+		for(int i = 0; i < password.length(); i++) {
+			//wenn lowerCase enthalten
+			if(Character.isLowerCase(password.charAt(i))) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	private boolean containsSpace(char[] password) {
 		//containsSpace-Prüfung
 		for(int i = 0; i < password.length; i++) {
@@ -73,12 +117,29 @@ public class PasswordChecker {
 		return false;
 	}
 	
+	private boolean containsSpace(String password) {
+		//containsSpace-Prüfung
+		for(int i = 0; i < password.length(); i++) {
+			//wenn Space enthalten
+			if(password.charAt(i) == ' ') {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	private boolean checkLength(char[] password) {
 		if(password.length >= 8 && password.length < 17) {
 			return true;
 		}
 		return false;
-		
+	}
+	
+	private boolean checkLength(String password) {
+		if(password.length() >= 8 && password.length() < 17) {
+			return true;
+		}
+		return false;
 	}
 	
 	/*public static void main(String[] args) {
