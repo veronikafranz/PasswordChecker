@@ -20,6 +20,7 @@ import java.awt.event.ActionListener;
  * @author veron
  *
  */
+@SuppressWarnings("serial")
 public class PasswordCheckerGUI extends JFrame {
 	
 	//Buttons
@@ -58,6 +59,7 @@ public class PasswordCheckerGUI extends JFrame {
         resultLabel = new JLabel();
         resultLabel.setText("");
         resultLabel.setLabelFor(resultText);
+        
         resultText = new JLabel();
         resultText.setText("Please insert your password.");
         
@@ -107,12 +109,12 @@ public class PasswordCheckerGUI extends JFrame {
 
 	private void checkButtonActionPerformed(java.awt.event.ActionEvent evt) {
 		//Parse password field
-		String text = tempPasswordField.getText();
+		char[] txt = tempPasswordField.getPassword();
 		//checking password
 		PasswordChecker pwc = new PasswordChecker();
 		//Displaying result
 		resultLabel.setText("Result: ");
-		if(pwc.checkPassword(text)) {
+		if(pwc.checkPassword(txt)) {
 			//password valid
 			resultText.setForeground(Color.green);
 			resultText.setText("Your password is valid.");
@@ -121,6 +123,11 @@ public class PasswordCheckerGUI extends JFrame {
 		    resultText.setForeground(Color.RED);
 		    resultText.setText("Your password is not valid.");
 		}
+		//set password chars 0
+		for(int i = 0; i < txt.length; i++) {
+			txt[i] = '0';
+		}
+		txt = null;
 	}
 		    
     /**

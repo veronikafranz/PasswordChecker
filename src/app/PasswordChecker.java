@@ -17,7 +17,7 @@ public class PasswordChecker {
 	 * @param password
 	 * @return true, if password is valid, else false
 	 */
-	public boolean checkPassword(String password) {
+	public boolean checkPassword(char[] password) {
 		if(password == null) {
 			return false;
 		}
@@ -29,59 +29,59 @@ public class PasswordChecker {
 				&& checkLength(password);
 	}
 	
-	private boolean checkDigits(String password) {
+	private boolean checkDigits(char[] password) {
 		//Zifferprüfung
-		for(int i = 0; i < password.length(); i++) {
+		for(int i = 0; i < password.length; i++) {
 			//wenn enthalten
-			if(Character.isDigit(password.charAt(i))) {
+			if(Character.isDigit(password[i])) {
 				return true;				
 			}
 		}
 		return false;
 	}
 	
-	private boolean checkUpperCase(String password) {
+	private boolean checkUpperCase(char[] password) {
 		//upperCase-Prüfung
-		for(int i = 0; i < password.length(); i++) {
+		for(int i = 0; i < password.length; i++) {
 			//wenn upperCase enthalten
-			if(Character.isUpperCase(password.charAt(i))) {
+			if(Character.isUpperCase(password[i])) {
 				return true;
 			}
 		}
 		return false;
 	}
 	
-	private boolean checkLowerCase(String password) {
+	private boolean checkLowerCase(char[] password) {
 		//lowerCase-Prüfung
-		for(int i = 0; i < password.length(); i++) {
+		for(int i = 0; i < password.length; i++) {
 			//wenn lowerCase enthalten
-			if(Character.isLowerCase(password.charAt(i))) {
+			if(Character.isLowerCase(password[i])) {
 				return true;
 			}
 		}
 		return false;
 	}
 
-	private boolean containsSpace(String password) {
+	private boolean containsSpace(char[] password) {
 		//containsSpace-Prüfung
-		for(int i = 0; i < password.length(); i++) {
+		for(int i = 0; i < password.length; i++) {
 			//wenn Space enthalten
-			if(password.charAt(i) == ' ') {
+			if(password[i] == ' ') {
 				return true;
 			}
 		}
 		return false;
 	}
 	
-	private boolean checkLength(String password) {
-		if(password.length() >= 8 && password.length() <= 16) {
+	private boolean checkLength(char[] password) {
+		if(password.length >= 8 && password.length < 17) {
 			return true;
 		}
 		return false;
 		
 	}
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		
 		PasswordChecker pwc = new PasswordChecker();
 		Scanner sc = new Scanner(System.in);
@@ -94,5 +94,5 @@ public class PasswordChecker {
 			System.out.println("Password is good: " + pwc.checkPassword(passwort));
 		}
 	}	
-
+*/
 }
